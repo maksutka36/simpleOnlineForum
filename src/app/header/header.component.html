@@ -1,0 +1,24 @@
+<mat-toolbar color="primary">
+    <span>
+      <a routerLink="/">Online forum</a>
+    </span>
+    <span class="spacer"></span>
+    <ul>
+      <li>
+        <a mat-button routerLink="/">My messages</a>
+      </li>
+      <li *ngIf="!authService.isAuth">
+        <a mat-button routerLink="/login" >Login</a>
+      </li>
+      <li *ngIf="!authService.isAuth">
+        <a mat-button routerLink="/signup" >Sing up</a>
+      </li>
+      <li *ngIf="authService.isAuth">
+        <a mat-button routerLink="/create" >New Post</a>
+      </li>
+      <li *ngIf="authService.isAuth">
+        <a mat-button (click)="onLogout()">Logout</a>
+      </li>
+    </ul>
+  </mat-toolbar>
+  
